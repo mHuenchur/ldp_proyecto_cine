@@ -1,5 +1,6 @@
 <?php
 
+namespace app\core\model\base;
 
 Class DAO {
     protected $conn, $table;

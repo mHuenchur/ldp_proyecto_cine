@@ -1,5 +1,8 @@
 <?php
 
+namespace app\core\model\base;
+
+use app\core\model\base\InterfaceDTO;
 
 interface InterfaceDAO {
 

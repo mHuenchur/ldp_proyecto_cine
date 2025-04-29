@@ -1,4 +1,10 @@
-<?php 
+<?php
+
+namespace app\core\model\dao;
+
+use app\core\model\base\DAO;
+use app\core\model\base\InterfaceDAO;
+use app\core\model\base\InterfaceDTO;
 
 final class UsuarioDAO extends DAO implements InterfaceDAO
 {
