@@ -2,8 +2,11 @@
 
 namespace app\core\middleware\base;
 
+use app\libs\request\Request;
+use app\libs\response\Response;
+
 interface Handler {
     public function setNext(Handler $handler): Handler;
 
-    public function handle(string $request): ?string;
+    public function handle(Request $request, Response $response);
 }

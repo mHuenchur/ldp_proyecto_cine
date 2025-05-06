@@ -7,6 +7,8 @@ use app\core\middleware\ExceptionHandler;
 use app\core\middleware\AuthenticationHandler;
 use app\core\middleware\AuthorizationHandler;
 use app\core\middleware\RoutingHandler;
+use app\libs\request\Request;
+use app\libs\response\Response;
 
 final class App{
 
@@ -21,6 +23,6 @@ final class App{
 
         $exception->setNext($authentication)->setNext($authorization)->setNext($routing);
 
-        $exception->handle("hola");
+        $exception->handle(new Request(), new Response());
     }
 }

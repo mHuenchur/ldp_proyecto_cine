@@ -2,16 +2,18 @@
 
 namespace app\core\middleware;
 use app\core\middleware\base\AbstractHandler;
+use app\libs\request\Request;
+use app\libs\response\Response;
 
 class RoutingHandler extends AbstractHandler{
 
-    public function handle(string $request): ?string
+    public function handle(Request $request, Response $response)
     {
-        $controllerName = 'app\\core\\controller\\AdministradorController';
+        $controllerName = 'app\\core\\controller\\'. ucfirst($request->getController()) .'Controller';
 
-        call_user_func_array(array(new $controllerName, "index"), array());
+        call_user_func_array(array(new $controllerName, $request->getAction()), array($request, $response));
 
         echo "Hola soy el Routing :D <br>\n";
-        return parent::handle($request);
+        return parent::handle($request, $response);
     }
 }
