@@ -4,33 +4,23 @@ namespace app\core\controller;
 
 use app\core\controller\base\InterfaceController;
 use app\core\controller\base\Controller;
+use app\libs\request\Request;
+use app\libs\response\Response;
 
-final class AutenticacionController extends Controller implements InterfaceController{
+final class AutenticacionController extends Controller{
 
-    public function index(): void{
-        require_once "app/resources/views/autenticacion/index.php";
+    public function index(Request $request, Response $response): void{
+        $this->view = "autenticacion/index.php";
+        require_once APP_TEMPLATE . "template.php";
     }
-    public function load(): void{
-
+    public function register(Request $request, Response $response): void{
+        $this->view = "autenticacion/register.php";
+        require_once APP_TEMPLATE . "template.php";
     }
-
-    public function create(): void{
-
-    }
-
-    public function save(): void{
-
-    }
-
-    public function edit(): void{
+    public function login(Request $request, Response $response): void{
 
     }
+    public function logout(): void{
 
-    public function update(): void{
-
-    }
-
-    public function delete(): void{
-        
     }
 }

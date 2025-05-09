@@ -4,33 +4,36 @@ namespace app\core\controller;
 
 use app\core\controller\base\InterfaceController;
 use app\core\controller\base\Controller;
+use app\libs\response\Response;
+use app\libs\request\Request;
 
 final class AdministradorController extends Controller implements InterfaceController{
 
-    public function index(): void{
-        require_once "app/resources/views/administrador/index.php";
+    public function index(Request $request, Response $response): void{
+        $this->view = "administrador/index.php";
+        require_once APP_TEMPLATE . "template.php";
     }
-    public function load(): void{
-
-    }
-
-    public function create(): void{
+    public function load(Request $request, Response $response): void{
 
     }
 
-    public function save(): void{
+    public function create(Request $request, Response $response): void{
 
     }
 
-    public function edit(): void{
+    public function save(Request $request, Response $response): void{
 
     }
 
-    public function update(): void{
+    public function edit(Request $request, Response $response): void{
 
     }
 
-    public function delete(): void{
+    public function update(Request $request, Response $response): void{
+
+    }
+
+    public function delete(Request $request, Response $response): void{
         
     }
 }
