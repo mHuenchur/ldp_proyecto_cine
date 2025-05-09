@@ -1,7 +1,7 @@
 <?php
 
 define("APP_URL", "http://localhost/ldp_proyecto_cine_huenchur/");
-define("APP_URI", $_SERVER["DOCUMENT_ROOT"]) . "/ldp_proyecto_cine_huenchur/app/";
+define("APP_URI", $_SERVER["DOCUMENT_ROOT"]. "/ldp_proyecto_cine_huenchur/app/") ;
 
 
 define("APP_TEMPLATE", APP_URI . "resources/template/");
