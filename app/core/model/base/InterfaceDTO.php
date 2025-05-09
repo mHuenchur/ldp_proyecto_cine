@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\model\base\InterfaceDTO;
+namespace app\core\model\base;
 
 interface InterfaceDTO {
 
