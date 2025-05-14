@@ -2,11 +2,11 @@
 
 namespace app;
 
-use app\core\middleware\base\Handler;
-use app\core\middleware\ExceptionHandler;
-use app\core\middleware\AuthenticationHandler;
-use app\core\middleware\AuthorizationHandler;
-use app\core\middleware\RoutingHandler;
+use app\core\handler\base\Handler;
+use app\core\handler\ExceptionHandler;
+use app\core\handler\AuthenticationHandler;
+use app\core\handler\AuthorizationHandler;
+use app\core\handler\RoutingHandler;
 use app\libs\request\Request;
 use app\libs\response\Response;
 

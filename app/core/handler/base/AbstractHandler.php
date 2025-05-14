@@ -1,7 +1,7 @@
 <?php
 
-namespace app\core\middleware\base;
-use app\core\middleware\base\Handler;
+namespace app\core\handler\base;
+use app\core\handler\base\Handler;
 use app\libs\request\Request;
 use app\libs\response\Response;
 

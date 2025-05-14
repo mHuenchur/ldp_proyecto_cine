@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\middleware\base;
+namespace app\core\handler\base;
 
 use app\libs\request\Request;
 use app\libs\response\Response;
