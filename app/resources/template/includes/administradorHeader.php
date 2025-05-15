@@ -13,7 +13,7 @@
           <a class="nav-link active" aria-current="page" href="pelicula/index">PELICULAS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="usuario/index" aria-disabled="true">USUARIOS</a>
+          <a class="nav-link disabled" aria-current="page" href="usuario/index" aria-disabled="true">USUARIOS</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
