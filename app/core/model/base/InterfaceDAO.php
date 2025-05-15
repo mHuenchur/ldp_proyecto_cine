@@ -8,11 +8,11 @@ interface InterfaceDAO {
 
     public function save(InterfaceDTO $object):void;
 
-    public function load(): InterfaceDTO;
+    public function load($id): InterfaceDTO;
 
     public function update(InterfaceDTO $object):void;
 
-    public function delete(): void;
+    public function delete($id): void;
 
     public function list(): array;
 }
