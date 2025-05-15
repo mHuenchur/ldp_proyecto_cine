@@ -8,17 +8,23 @@ use app\core\model\base\InterfaceDTO;
 
 final class UsuarioDAO extends DAO implements InterfaceDAO
 {
-    public function __construct()
+    public function __construct($conn)
     {
-        
+        parent::__construct($conn, "usuario");
     }
 
     public function save(InterfaceDTO $object): void
     {
-        
+        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :nombre, :apellido, :nombre_usuario, :contrasena, :correo, :id_perfil)";
+        $stmt = $this->conn->prepare($sql);
+        $data = $object->toArray();
+        unset($data["id"]);
+
+
+        $stmt->execute($data);
     }
 
-    public function load(): InterfaceDTO
+    public function load($id): InterfaceDTO
     {
         return  new InterfaceDTO();
     }
@@ -28,7 +34,7 @@ final class UsuarioDAO extends DAO implements InterfaceDAO
         
     }
 
-    public function delete(): void
+    public function delete($id): void
     {
         
     }
