@@ -3,6 +3,9 @@
 <head>
     <?php
     require_once APP_TEMPLATE . "includes/head.php";
+    foreach($this->scripts as $script){
+        echo ('<script defer type="text/javascript" src=" '. $script .' "></script>');
+    }
     ?>
 </head>
 <body>
