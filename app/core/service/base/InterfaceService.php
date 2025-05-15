@@ -2,7 +2,7 @@
 
 namespace app\core\service\base;
 
-use app\core\model\base\InteraceDTO;
+use app\core\model\base\InterfaceDTO;
 
 interface InterfaceService{
     public function save(array $object): void;
