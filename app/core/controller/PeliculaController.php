@@ -8,6 +8,14 @@ use app\libs\response\Response;
 use app\libs\request\Request;
 
 final class PeliculaController extends Controller implements InterfaceController{
+    
+    public function __construct()
+    {
+        parent::__construct([
+            "public/app/js/administrador/administradorController.js",
+            "public/app/js/administrador/administradorService.js"
+        ]);
+    }
 
     public function index(Request $request, Response $response): void{
         $this->view = "pelicula/index.php";
@@ -22,7 +30,10 @@ final class PeliculaController extends Controller implements InterfaceController
     }
 
     public function save(Request $request, Response $response): void{
-
+        $service = new PeliculaService();
+        $service->save($request->getData());
+        $response->setMessage("La sala se registró correctamente");
+        $response->send();
     }
 
     public function edit(Request $request, Response $response): void{
