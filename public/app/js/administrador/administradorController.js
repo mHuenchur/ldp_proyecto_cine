@@ -5,7 +5,10 @@ let administradorController = {
         numeroSala: "0",
         estado: "0"
     },
-    save: () => {
+    dataPelicula: {
+        
+    },
+    saveSala: () => {
         let form = document.forms["formularioAltaSala"];
 
         if (form.checkValidity()){
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let btnNewSala = document.getElementById("btnGuardarSala");
     if(btnNewSala != null){
         btnNewSala.onclick = () => {
-            administradorController.save();
+            administradorController.saveSala();
         }
     }
 })

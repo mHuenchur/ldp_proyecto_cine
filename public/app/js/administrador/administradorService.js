@@ -15,6 +15,7 @@ let administradorService = {
             return response.json()
         })
         .catch(error => {
+            console.log(response.Error),
             console.error("ERROR EN LA PETICION ", error)
         });
     }
