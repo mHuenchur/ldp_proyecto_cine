@@ -6,8 +6,17 @@ use app\core\controller\base\InterfaceController;
 use app\core\controller\base\Controller;
 use app\libs\request\Request;
 use app\libs\response\Response;
+use app\libs\autentication\Autentication;
 
 final class AutenticacionController extends Controller{
+
+    public function __construct()
+    {
+        parent::__construct([
+            "public/app/js/autenticacion/autenticacionController.js",
+            "public/app/js/autenticacion/autenticacionService.js"
+        ]);
+    }
 
     public function index(Request $request, Response $response): void{
         $this->view = "autenticacion/index.php";
@@ -18,7 +27,12 @@ final class AutenticacionController extends Controller{
         require_once APP_TEMPLATE . "template.php";
     }
     public function login(Request $request, Response $response): void{
+        $data = $request->getData();
+        Autentication::login($data["nombreUsuario"], $data["clave"]);
+        $response->setMessage("OK");
+        $response->setController($_SESSION["perfil"]);
 
+        $response->send();
     }
     public function logout(): void{
 
