@@ -10,7 +10,7 @@ final class CarteleraDTO  implements InterfaceDTO{
 
      public function __construct($data = [])
     {
-        $this->setId($$data["id"] ?? 0);
+        $this->setId($data["id"] ?? 0);
         $this->setFechaInicio($data["fechaInicio"] ?? "");
         $this->setFechaFin($data["fechaFin"] ?? "");
     }
