@@ -35,6 +35,10 @@ final class AutenticacionController extends Controller{
         $response->send();
     }
     public function logout(): void{
+        Autentication::logout();
 
+        $this->view = "autenticacion/logout.php";
+        header("refresh:2; url=" . APP_URL . "autenticacion/index");
+        require_once APP_TEMPLATE . "template.php";
     }
 }
