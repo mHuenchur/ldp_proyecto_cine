@@ -7,8 +7,8 @@ final class Request{
     private $controller, $action, $id, $data;
 
     public function __construct(){
-        $this->controller = $_GET["controller"] ?? \APP_DEFAULT_CONTROLLER;
-        $this->action = $_GET["action"] ?? \APP_DEFAULT_ACTION;
+        $this->controller = $_GET["controller"] ?? APP_DEFAULT_CONTROLLER;
+        $this->action = $_GET["action"] ?? APP_DEFAULT_ACTION;
         $this->id = $_GET["id"] ?? 0;
         $this->data = json_decode(file_get_contents("php://input"), true);
     }
