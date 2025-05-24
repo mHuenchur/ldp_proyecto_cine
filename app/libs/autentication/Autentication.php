@@ -9,7 +9,7 @@ final class Autentication{
     public static function login($user, $pass): void{
         //validar formato del usuario y contraseña
         $conn = Connection::get();
-        $sql = "SELECT CONCAT(usuario.nombre,', ',apellido) AS usuario, usuarioID, nombreUsuario, clave, correo, perfil.nombre AS perfil FROM `usuario` INNER JOIN perfil ON usuario.usuarioID = perfil.perfilID WHERE `nombreUsuario` = :nombreUsuario"; 
+        $sql = "SELECT CONCAT(usuario.nombre,', ',apellido) AS usuario, usuarioID, nombreUsuario, clave, correo, perfil.nombre AS perfil FROM `usuario` INNER JOIN perfil ON usuario.perfilID = perfil.perfilID WHERE `nombreUsuario` = :nombreUsuario"; 
         $stmt = $conn->prepare($sql);
         if(!$stmt->execute(["nombreUsuario" => $user])){
             throw new \Exception("No se pudo <i>ejecutar</i> la consulta");
