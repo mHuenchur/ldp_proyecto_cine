@@ -4,7 +4,7 @@ namespace app\core\model\dto;
 
 use app\core\model\base\InterfaceDTO;
 
-final class CarteleraDTO  implements InterfaceDTO{
+final class CarteleraDTO implements InterfaceDTO{
 
      private $id, $fechaInicio, $fechaFin;
 
