@@ -3,5 +3,9 @@
         "psr-4": {
             "app\\": "app/"
         }
+    },
+    "require": {
+        "dompdf/dompdf": "^3.1",
+        "phpmailer/phpmailer": "^6.10"
     }
 }
