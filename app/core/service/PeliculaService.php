@@ -10,7 +10,7 @@ use app\core\model\dto\PeliculaDTO;
 use app\core\model\base\InterfaceDTO;
 
 
-final class SalaService extends Service implements InterfaceService{
+final class PeliculaService extends Service implements InterfaceService{
     
     public function save(array $object): void{
         $conn = Connection::get();
