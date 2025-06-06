@@ -43,13 +43,20 @@ final class SalaDAO extends DAO implements InterfaceDAO
 
     public function list(): array
     {
-        return array();
+        $stmt = $this->conn->prepare("SELECT * FROM sala");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_NUM);
     }
     //VALIDACIONES
     public function validarCampos(SalaDTO $object){
         if($object->getNumeroSala() == "" || $object->getCapacidad() == "" || $object->getEstado() == ""){
             throw new \Exception("Campos con valores incorrectos!");
         }
+    }
+    public function listBy(): array{
+        $stmt = $this->conn->prepare("SELECT `salaID`, `capacidad`, `numeroSala`, `estado` FROM `sala` ORDER BY capacidad");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
 
