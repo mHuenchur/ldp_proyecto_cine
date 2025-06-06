@@ -31,6 +31,13 @@ final class SalaService extends Service implements InterfaceService{
     }
 
     public function list(): array{
-        return array();
+        $conn = Connection::get();
+        $dao = new SalaDAO($conn);
+        return $dao->list();
+    }
+    public function listBy(): array{
+        $conn = Connection::get();
+        $dao = new SalaDAO($conn);
+        return $dao->listBy();
     }
 }
