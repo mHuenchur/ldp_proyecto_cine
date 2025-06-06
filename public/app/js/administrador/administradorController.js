@@ -6,7 +6,21 @@ let administradorController = {
         estado: "0"
     },
     dataPelicula: {
-        
+        id: 0,
+        nombre: "Las camelias",
+        tituloOriginal: "The camelias",
+        duracion: "02:22:22",
+        anioEstreno: "1999-09-12",
+        disponibilidad: "1",
+        fechaIngreso: "2024-05-01",
+        sitioWeb: "www.hola.com",
+        sinopsis: "laaaa sinopsissss",
+        imagen: "101",
+        actor: "Clooney",
+        genero: "si",
+        pais: "de aca",
+        idioma: "argentino",
+        calificacion: "11"
     },
     saveSala: () => {
         let form = document.forms["formularioAltaSala"];
@@ -24,7 +38,7 @@ let administradorController = {
                 }
                 administradorService.save(administradorController.data)
                 .then(response => {
-                    console.log("Respuesta del servidor", response)
+                    //console.log("Respuesta del servidor", response)
                     if(response.error == ""){
                         administradorController.showMessage(response.mensaje);
                         form.reset();
@@ -35,6 +49,21 @@ let administradorController = {
                 })
             }
         }
+    },
+    savePelicula: () => {
+        administradorService.savePelicula(administradorController.dataPelicula);
+    },
+    ordenar: () => {
+        administradorService.ordenar()
+                .then(response => {
+                    //console.log("Respuesta del servidor", response.result)
+                    if(response.error == ""){
+                        administradorController.showMessage(response.mensaje);
+                    }
+                    else{
+                        //administradorController.showMessage(response.error);
+                    }
+                })
     },
     showMessage: (respuesta) => {
         const toastLiveExample = document.getElementById('liveToast')
@@ -47,9 +76,21 @@ let administradorController = {
 
 document.addEventListener("DOMContentLoaded", () => {
     let btnNewSala = document.getElementById("btnGuardarSala");
+    let btnNewPelicula = document.getElementById("btnGuardarPelicula");
+    let btnOrdenar = document.getElementById("btnOrdenar");
+    if(btnNewPelicula != null){
+        btnNewPelicula.onclick = () => {
+            administradorController.savePelicula();
+        }
+    }
     if(btnNewSala != null){
         btnNewSala.onclick = () => {
             administradorController.saveSala();
+        }
+    }
+    if(btnOrdenar != null){
+        btnOrdenar.onclick = () => {
+            administradorController.ordenar();
         }
     }
 })
