@@ -46,13 +46,13 @@ let autenticacionController = {
             if(response.error === "" && response.mensaje === "OK"){
                 //console.log("Respuesta del servidor", response)
                 window.location.href = response.controlador + "/index";
-            }/*else{
+            }else{
                 const toastLiveExample = document.getElementById('liveToast')
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-                const message = document.getElementById("messageConatiner");
+                const message = document.getElementById("messageContainer");
                 message.innerHTML = response.error;
                 toastBootstrap.show()
-            }*/
+            }
         })
     }
 }
