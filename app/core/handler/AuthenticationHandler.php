@@ -14,8 +14,9 @@ class AuthenticationHandler extends AbstractHandler{
 
         //si no esta el token o  el token no es app_token
         if(!isset($_SESSION["token"]) || $_SESSION["token"] !== APP_TOKEN){
-            //si el controlador no es autenticaion o  la accion no es login
-            if($request->getController() !== "autenticacion" || $request->getAction() !== "login"){
+            //si el controlador no es autenticaion o  la accion no es ninguna de las permitidas
+            $accionesAdmitidasAutenticacion = ["index", "login", "passwordLost"];
+            if($request->getController() !== "autenticacion" || !in_array($request->getAction(), $accionesAdmitidasAutenticacion)){
                 $request->setController("autenticacion");
                 $request->setAction("index");
             }
