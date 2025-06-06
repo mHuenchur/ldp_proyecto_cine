@@ -4,6 +4,7 @@ namespace app\core\controller;
 
 use app\core\controller\base\InterfaceController;
 use app\core\controller\base\Controller;
+use app\core\service\PeliculaService;
 use app\libs\response\Response;
 use app\libs\request\Request;
 
@@ -32,7 +33,7 @@ final class PeliculaController extends Controller implements InterfaceController
     public function save(Request $request, Response $response): void{
         $service = new PeliculaService();
         $service->save($request->getData());
-        $response->setMessage("La sala se registró correctamente");
+        $response->setMessage("La pelicula se registró correctamente");
         $response->send();
     }
 
