@@ -26,6 +26,10 @@ final class AutenticacionController extends Controller{
         $this->view = "autenticacion/register.php";
         require_once APP_TEMPLATE . "template.php";
     }
+    public function passwordLost(): void{
+        $this->view = "autenticacion/changePassword.php";
+        require_once APP_TEMPLATE . "template.php";
+    }
     public function login(Request $request, Response $response): void{
         $data = $request->getData();
         Autentication::login($data["nombreUsuario"], $data["clave"]);
