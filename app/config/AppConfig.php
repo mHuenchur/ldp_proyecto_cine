@@ -10,7 +10,13 @@ define("APP_VIEWS", APP_URI . "resources/views/");
 define("APP_MODELS", APP_URI . "core/model/");
 define("APP_SERVICES", APP_URI . "core/service/");
 
+CONST APP_TOKEN = "CLAVE_SECRETA";
 
-CONST APP_DEFAULT_CONTROLLER = "inicio";
-CONST APP_DEFAULT_ACTION = "index";
+define("APP_DEFAULT_ACTION", "index");
+
+if(isset($_SESSION["token"])){
+    define("APP_DEFAULT_CONTROLLER", $_SESSION["perfil"]);
+}else {
+    define("APP_DEFAULT_CONTROLLER", "autenticacion");
+}
 ?>
