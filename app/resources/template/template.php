@@ -22,7 +22,9 @@
             }
         }
     }else {
-        require_once APP_TEMPLATE . "includes/autenticacionHeader.php";
+        if ($this->view != "autenticacion/logout.php") {
+            require_once APP_TEMPLATE . "includes/autenticacionHeader.php";
+        }
     }
     
     ?>
