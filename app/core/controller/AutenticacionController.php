@@ -7,6 +7,7 @@ use app\core\controller\base\Controller;
 use app\libs\request\Request;
 use app\libs\response\Response;
 use app\libs\autentication\Autentication;
+use app\core\service\UsuarioService;
 
 final class AutenticacionController extends Controller{
 
@@ -44,5 +45,14 @@ final class AutenticacionController extends Controller{
         $this->view = "autenticacion/logout.php";
         header("refresh:2; url=" . APP_URL . "autenticacion/index");
         require_once APP_TEMPLATE . "template.php";
+    }
+
+    public function save(Request $request, Response $response){
+        $service = new UsuarioService();
+        $valores = $request->getData();
+        $valores["tipo"] = "3";
+        $service->save($valores);
+        $response->setMessage("El usuario se registró correctamente");
+        $response->send();
     }
 }

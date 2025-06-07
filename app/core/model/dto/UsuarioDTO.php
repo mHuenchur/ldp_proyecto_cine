@@ -11,13 +11,13 @@ final class UsuarioDTO  implements InterfaceDTO
 
 public function __construct($data = [])
 {
-    $this->setId($data["id"] ?? 0);
+    $this->setId($data["id"] ?? "0");
     $this->setNombre($data["nombre"] ?? "");
     $this->setApellido($data["apellido"] ?? "");
-    $this->setNombreUsuario($data["nombre_usuario"] ?? "");
-    $this->setContrasena($data["contrasena"] ?? "");
+    $this->setNombreUsuario($data["nombreUsuario"] ?? "");
+    $this->setContrasena($data["clave"] ?? "");
     $this->setCorreo($data["correo"] ?? "");
-    $this->setPerfilId($data["id_perfil"] ?? 0);
+    $this->setPerfilId($data["tipo"] ?? "3");
 }
 
 public function getId(): int{

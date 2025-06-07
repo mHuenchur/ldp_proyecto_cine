@@ -5,30 +5,32 @@ let autenticacionController = {
         apellido: "",
         nombreUsuario: "",
         correo: "",
-        clave: ""
+        clave: "",
+        tipo: ""
     },
     saveUsuario: () => {
         let form = document.forms["formularioAltaUsuario"];
 
         if (form.checkValidity()){
-            if (form.salaCapacidad.value.trim() === "" || form.salaNumero.value.trim() === "") {
+            //COMPLETAR VERIFICACIONES
+            if (false) {
                 autenticacionController.showMessage("Existen campos vacios!");
             }else{
                 autenticacionController.dataUsuario.nombre = form.datoNombre.value;
                 autenticacionController.dataUsuario.apellido = form.datoApellido.value;
                 autenticacionController.dataUsuario.nombreUsuario = form.datoNombreUsuario.value;
-                autenticacionController.dataUsuario.correo = form.datoCorreo.value;
-                autenticacionController.dataUsuario.clave = form.datoClave.value;
+                autenticacionController.dataUsuario.correo = form.datoEmail.value;
+                autenticacionController.dataUsuario.clave = form.datoRegistroClave.value;
 
-                administradorService.saveUsuario(autenticacionController.dataUsuario)
+                autenticacionService.saveUsuario(autenticacionController.dataUsuario)
                 .then(response => {
                     console.log("Respuesta del servidor", response)
                     if(response.error == ""){
-                        autenticacionController.showMessage(response.mensaje);
+                        //autenticacionController.showMessage(response.mensaje);
                         form.reset();
                     }
                     else{
-                        autenticacionController.showMessage(response.error);
+                        //autenticacionController.showMessage(response.error);
                     }
                 })
             }
@@ -60,9 +62,15 @@ let autenticacionController = {
 
 document.addEventListener("DOMContentLoaded", () => {
     let btnLogin = document.getElementById("btnLogin");
+    let btnRegister = document.getElementById("btnRegistrarUsuario");
     if(btnLogin != null){
         btnLogin.onclick = () => {
             autenticacionController.login();
+        }
+    }
+    if(btnRegister != null){
+        btnRegister.onclick = () => {
+            autenticacionController.saveUsuario();
         }
     }
 })
